@@ -4,7 +4,9 @@ only use
 **INSTALLER**
 
 cd BruteForce
+
 ls
+
 python DM.py
 
 **EMJOY**
