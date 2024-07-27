@@ -9,4 +9,4 @@ ls
 
 python DM.py
 
-**EMJOY**
+**ENJOY**
