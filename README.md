@@ -3,7 +3,7 @@
 
 # HOW TO USE? 어떻게 사용하나요?
 
-cd BRUTE-FORCE-FTP
+cd FTP-BRUTE-FORCE
 
 ls
 
