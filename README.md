@@ -4,7 +4,9 @@
 # HOW TO USE? 어떻게 사용하나요?
 
 cd BRUTE-FORCE-FTP
+
 ls
+
 python FTP.py
 
 # BRUTE FORCE 란?
