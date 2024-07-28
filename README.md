@@ -3,7 +3,7 @@ only use
 
 **INSTALLER**
 
-cd BruteForce
+# cd BruteForce
 
 ls
 
